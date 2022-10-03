@@ -1,0 +1,52 @@
+### Ping
+GET http://localhost:3003/ping
+
+### Signup
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+  "name": "Roberta",
+  "email": "robertagmail.com",
+  "password": "123456"
+}
+
+### Login
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+  "email": "vinicius@gmail.com",
+  "password": "123456"
+}
+
+### Post Show
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2MDk2NTc4LWNhNGYtNDRhYy1iMTZiLTI1M2Y3YzNlYjg2ZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2NDU2NTM4NiwiZXhwIjoxNjY0NjUxNzg2fQ.XWZgg2Vn5Q8IhP5TkmJ3KmIvS7v8mSZ4RsECtRUQsas
+@token2= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImViZWYxZDNjLTFkYTItNDAxOS1hOTA3LTgxMDI1NGM2YTU1OCIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjQ2NDUwNzMsImV4cCI6MTY2NDczMTQ3M30.kxuQVnwqmpCnKQoppw_eBRZJQQHyAEdg9Yb9AtsoWZI
+
+POST http://localhost:3003/show
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "band": "Leigh-Anne",
+  "startsAt": "31/12/2022"
+}
+
+### GET Shows
+
+GET http://localhost:3003/show/all
+
+### POST Book Ticket
+
+POST http://localhost:3003/show/053e16c9-d803-4b3c-b470-738/ticket
+Content-Type: application/json
+Authorization: {{token2}}
+
+### DELETE Book Ticket
+
+DELETE http://localhost:3003/show/053e16c9-d803-4b3c-b470-7382feacd03f/ticket
+Content-Type: application/json
+Authorization: {{token2}}
